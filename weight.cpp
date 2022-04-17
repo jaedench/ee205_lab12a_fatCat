@@ -17,6 +17,7 @@
 
 #include "weight.h"
 
+
 ////////////// Static Public Attributes ///////////////
 const float Weight::KILOS_IN_A_POUND = 0.453592 ;
 const float Weight::SLUGS_IN_A_POUND = 0.031081 ;
@@ -82,9 +83,8 @@ Weight::Weight() noexcept {
     weightIsKnown = false;
     weightHasMax = false;
 }
-/*
-Weight::Weight( float newWeight ) {}
 
+/*
 Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {}
 
 Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight) {}
@@ -112,4 +112,18 @@ float Weight::getWeight(Weight::UnitOfWeight weightUnits) const noexcept {
 
 float Weight::getMaxWeight() const noexcept {
     return maxWeight;
+}
+
+// Setters
+void Weight::setWeight(float newWeight) {
+    //@todo call validation for newWeight before setting it and throw error
+    weight = newWeight;
+    weightIsKnown = true;
+}
+
+void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
+    //@todo call validation for newWeight before setting it and throw error
+    weight = newWeight;
+    unitOfWeight = weightUnits;
+    weightIsKnown = true;
 }

@@ -14,6 +14,8 @@
 #include <iostream>
 #include <string>
 
+#define PROGRAM_NAME = "Fat Cat"
+
 class Weight {
 public:
     ////////////// Public Types //////////////
@@ -47,8 +49,8 @@ public:
 
     /////////////////// Public Member Functions ////////////////////
     //////////////// Constructors //////////////////
-    Weight() noexcept;
-    Weight( float newWeight );      /// A default weight.
+    Weight() noexcept;      /// A default weight.
+    Weight( float newWeight );      /// A weight with a value.
     Weight( UnitOfWeight newUnitOfWeight ) noexcept;
     Weight( float newWeight, UnitOfWeight newUnitOfWeight);
     Weight( float newWeight, float newMaxWeight);
@@ -66,13 +68,13 @@ public:
 
     float getMaxWeight () const noexcept;       /// Get the maximum weight.
 
-    /*
+
     // Setters
-    void setWeight( float newWeight ) const noexcept;     /// Set weight.
+    void setWeight( float newWeight ) ;     /// Set weight.
 
-    void setWeight( float newWeight, UnitOfWeight weightUnits ) const noexcept;     /// Set the weight with specific unit.
+    void setWeight( float newWeight, UnitOfWeight weightUnits ) ;     /// Set the weight with specific unit.
 
-*/
+
 private:
     ////////////////// Private Attributes ////////////////////
     float weight = UNKNOWN_WEIGHT;
@@ -87,4 +89,5 @@ private:
 
 
 };
+
 
