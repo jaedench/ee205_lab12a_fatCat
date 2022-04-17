@@ -73,14 +73,29 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
     return toWeight;
 }
 
-/*
+
 ////////////// Getters and Setters ///////////////
 // Getters
 float Weight::getWeight() const noexcept {
     return weight;
 }
 
+Weight::UnitOfWeight Weight::getWeightUnit() const noexcept {
+    return unitOfWeight;
+}
 
+float Weight::getWeight(Weight::UnitOfWeight weightUnits) const noexcept {
+    return convertWeight( getWeight(), getWeightUnit(), weightUnits);
+}
+
+float Weight::getMaxWeight() const noexcept {
+    return maxWeight;
+}
+
+
+
+
+/*
 //////////////// Constructors //////////////////
 Weight::Weight() noexcept {}
 
