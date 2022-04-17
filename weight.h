@@ -16,30 +16,75 @@
 
 class Weight {
 public:
-    ////////////// Enums //////////////
-    enum UnitOfWeight{ POUND, KILO, SLUG};  /// units of measure for weight
+    ////////////// Public Types //////////////
+    enum UnitOfWeight{ POUND, KILO, SLUG};  /// units of measure for weight.
 
-    /// conversion constants
+
+    ////////////// Static Public Attributes ///////////////
+    // conversion constants
     static const float KILOS_IN_A_POUND ;
     static const float SLUGS_IN_A_POUND ;
+    static const float UNKNOWN_WEIGHT ;
 
-    /// labels
+    // labels
     static const std::string POUND_LABEL ;
     static const std::string KILO_LABEL ;
     static const std::string SLUG_LABEL ;
 
-    /////////////// Static Methods ////////////////
-    // kilogram to pound
-    static float fromKilogramToPound( float kilogram ) noexcept;
-    // pound to kilogram
-    static float fromPoundToKilogram( float pound ) noexcept;
-    // slug to pound
-    static float fromSlugToPound( float slug ) noexcept;
-    // pound to slug
-    static float fromPoundToSlug( float pound ) noexcept;
 
-    /// Conversion between unit types
+    /////////////// Static Public Member Functions ////////////////
+    static float fromKilogramToPound( float kilogram ) noexcept;    /// Convert kilogram to pound.
+
+    static float fromPoundToKilogram( float pound ) noexcept;       /// Convert pound to kilogram.
+
+    static float fromSlugToPound( float slug ) noexcept;            /// Convert slug to pound.
+
+    static float fromPoundToSlug( float pound ) noexcept;           /// Convert pound to slug.
+
     static float convertWeight( float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit ) noexcept;
+    /// Conversion fromWeight in fromUnit to the wight in toUnit.
+
+
+    /////////////////// Public Member Functions ////////////////////
+    ////////////// Getters and Setters ///////////////
+    // Getters
+    float getWeight() const noexcept;       /// Get the weight in the weight's units.
+
+    float getWeight (UnitOfWeight weightUnits) const noexcept;      /// Get the weight in a specific unit.
+
+    float getMaxWeight () const noexcept;       /// Get the maximum weight.
+
+    UnitOfWeight getWeightUnit() const noexcept;
+
+    // Setters
+    void setWeight( float newWeight ) const noexcept;     /// Set weight.
+
+    void setWeight( float newWeight, UnitOfWeight weightUnits ) const noexcept;     /// Set the weight with specific unit.
+
+
+    /*
+    //////////////// Constructors //////////////////
+    Weight() noexcept;
+    Weight( float newWeight );
+    Weight( UnitOfWeight newUnitOfWeight ) noexcept;
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight);
+    Weight( float newWeight, float newMaxWeight);
+    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);
+
+
+private:
+    ////////////////// Private Attributes ////////////////////
+    float weight = UNKNWON_WEIGHT;
+    float newWeight = UNKNOWN_WEIGHT;
+    enum UnitOfWeight unitOfWeight = POUND;
+    bool bIsKnown = false;
+    bool bHasMax = false;
+
+    ///////////////// Private Member Functions //////////////////
+    void setMaxWeight( float newMaxWeight );
+*/
+
 
 };
 

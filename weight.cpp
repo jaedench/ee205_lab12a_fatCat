@@ -17,8 +17,15 @@
 
 #include "weight.h"
 
+////////////// Static Public Attributes ///////////////
 const float Weight::KILOS_IN_A_POUND = 0.453592 ;
 const float Weight::SLUGS_IN_A_POUND = 0.031081 ;
+const float Weight::UNKNOWN_WEIGHT   = -1 ;
+
+const std::string Weight::POUND_LABEL = "Pound" ;
+const std::string Weight::KILO_LABEL  = "Kilogram" ;
+const std::string Weight::SLUG_LABEL  = "Slug" ;
+
 
 ///////////////// Static Methods ///////////////////
 float Weight::fromKilogramToPound( const float kilogram ) noexcept {
@@ -65,3 +72,27 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
     }
     return toWeight;
 }
+
+/*
+////////////// Getters and Setters ///////////////
+// Getters
+float Weight::getWeight() const noexcept {
+    return weight;
+}
+
+
+//////////////// Constructors //////////////////
+Weight::Weight() noexcept {}
+
+Weight::Weight( float newWeight ) {}
+
+Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {}
+
+Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight) {}
+
+Weight::Weight( float newWeight, float newMaxWeight) {}
+
+Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
+
+Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
+ */
