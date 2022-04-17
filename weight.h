@@ -46,6 +46,16 @@ public:
 
 
     /////////////////// Public Member Functions ////////////////////
+    //////////////// Constructors //////////////////
+    Weight() noexcept;
+    Weight( float newWeight );      /// A default weight.
+    Weight( UnitOfWeight newUnitOfWeight ) noexcept;
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight);
+    Weight( float newWeight, float newMaxWeight);
+    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);
+
+
     ////////////// Getters and Setters ///////////////
     // Getters
     float getWeight() const noexcept;       /// Get the weight in the weight's units.
@@ -56,21 +66,11 @@ public:
 
     float getMaxWeight () const noexcept;       /// Get the maximum weight.
 
+    /*
     // Setters
     void setWeight( float newWeight ) const noexcept;     /// Set weight.
 
     void setWeight( float newWeight, UnitOfWeight weightUnits ) const noexcept;     /// Set the weight with specific unit.
-
-
-    /*
-    //////////////// Constructors //////////////////
-    Weight() noexcept;
-    Weight( float newWeight );
-    Weight( UnitOfWeight newUnitOfWeight ) noexcept;
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight);
-    Weight( float newWeight, float newMaxWeight);
-    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);
 
 */
 private:
@@ -78,8 +78,8 @@ private:
     float weight = UNKNOWN_WEIGHT;
     float maxWeight = UNKNOWN_WEIGHT;
     enum UnitOfWeight unitOfWeight = POUND;
-    bool bIsKnown = false;
-    bool bHasMax = false;
+    bool weightIsKnown = false;
+    bool weightHasMax = false;
 /*
     ///////////////// Private Member Functions //////////////////
     void setMaxWeight( float newMaxWeight );

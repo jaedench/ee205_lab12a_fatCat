@@ -74,6 +74,28 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
 }
 
 
+//////////////// Constructors //////////////////
+Weight::Weight() noexcept {
+    weight = UNKNOWN_WEIGHT;
+    maxWeight = UNKNOWN_WEIGHT;
+    unitOfWeight = POUND;
+    weightIsKnown = false;
+    weightHasMax = false;
+}
+/*
+Weight::Weight( float newWeight ) {}
+
+Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {}
+
+Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight) {}
+
+Weight::Weight( float newWeight, float newMaxWeight) {}
+
+Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
+
+Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
+*/
+
 ////////////// Getters and Setters ///////////////
 // Getters
 float Weight::getWeight() const noexcept {
@@ -91,23 +113,3 @@ float Weight::getWeight(Weight::UnitOfWeight weightUnits) const noexcept {
 float Weight::getMaxWeight() const noexcept {
     return maxWeight;
 }
-
-
-
-
-/*
-//////////////// Constructors //////////////////
-Weight::Weight() noexcept {}
-
-Weight::Weight( float newWeight ) {}
-
-Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {}
-
-Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight) {}
-
-Weight::Weight( float newWeight, float newMaxWeight) {}
-
-Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
-
-Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {}
- */
