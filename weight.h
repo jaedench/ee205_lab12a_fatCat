@@ -51,11 +51,11 @@ public:
     //////////////// Constructors //////////////////
     Weight() noexcept;      /// A default weight.
     Weight( float newWeight );      /// A weight with a value.
-    Weight( UnitOfWeight newUnitOfWeight ) noexcept;
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight);
-    Weight( float newWeight, float newMaxWeight);
-    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);
+    Weight( UnitOfWeight newUnitOfWeight ) noexcept;    /// A weight with a UnitOfWeight.
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight);     /// A weight with a value and a UnitOfWeight.
+    Weight( float newWeight, float newMaxWeight);   /// A weight with a UnitOfWeight and a maximum weight.
+    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);    /// A weight with a UnitOfWeight and a maximum weight.
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);     /// A weight with a value, UnitOfWeight and a maximum weight.
 
 
     ////////////// Getters and Setters ///////////////
@@ -89,5 +89,6 @@ private:
 
 
 };
+
 
 
