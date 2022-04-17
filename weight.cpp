@@ -127,3 +127,9 @@ void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
     unitOfWeight = weightUnits;
     weightIsKnown = true;
 }
+
+void Weight::setMaxWeight(float newMaxWeight) {
+    //@todo call validation for newWeight before setting it and throw error
+    maxWeight = newMaxWeight;
+    weightHasMax = true;
+}

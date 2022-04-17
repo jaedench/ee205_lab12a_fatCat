@@ -70,9 +70,9 @@ public:
 
 
     // Setters
-    void setWeight( float newWeight ) ;     /// Set weight.
+    void setWeight( float newWeight );     /// Set weight.
 
-    void setWeight( float newWeight, UnitOfWeight weightUnits ) ;     /// Set the weight with specific unit.
+    void setWeight( float newWeight, UnitOfWeight weightUnits );     /// Set the weight with specific unit.
 
 
 private:
@@ -82,10 +82,10 @@ private:
     enum UnitOfWeight unitOfWeight = POUND;
     bool weightIsKnown = false;
     bool weightHasMax = false;
-/*
+
     ///////////////// Private Member Functions //////////////////
     void setMaxWeight( float newMaxWeight );
-*/
+
 
 
 };
