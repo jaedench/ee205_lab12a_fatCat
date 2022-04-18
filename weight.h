@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-#define PROGRAM_NAME = "Fat Cat"
+#define PROGRAM_NAME "Fat Cat"
 
 class Weight {
 public:
@@ -73,6 +73,28 @@ public:
     void setWeight( float newWeight );     /// Set weight.
 
     void setWeight( float newWeight, UnitOfWeight weightUnits );     /// Set the weight with specific unit.
+
+
+    /////////// Validation /////////////
+    bool isWeightKnown() const noexcept;
+
+    bool hasMaxWeight() const noexcept;
+
+    bool isWeightValid(float checkWeight) const noexcept;
+
+    bool validate() const noexcept;
+
+
+    //////////////// Dump /////////////////
+    void dump() const noexcept;
+
+
+    ///////////////  Numeric Operators ////////////////
+    bool operator==( const Weight &rhs_Weight ) const;
+
+    bool operator<( const Weight &rhs_weight ) const;
+
+    Weight & operator+=( float rhs_addToWeight );
 
 
 private:
