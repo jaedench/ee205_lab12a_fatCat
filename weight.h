@@ -108,8 +108,6 @@ private:
     ///////////////// Private Member Functions //////////////////
     void setMaxWeight( float newMaxWeight );
 
-
-
 };
 
 

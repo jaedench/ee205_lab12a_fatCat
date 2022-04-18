@@ -14,7 +14,6 @@
 #include <cassert>
 #include <stdexcept>
 #include <iomanip>
-#include <cstring>
 
 #include "weight.h"
 
@@ -84,39 +83,52 @@ Weight::Weight() noexcept {
     unitOfWeight = POUND;
     weightIsKnown = false;
     weightHasMax = false;
+    assert( validate() );
 }
 
 Weight::Weight(float newWeight) {
     setWeight( newWeight );
     unitOfWeight = POUND;
     maxWeight = UNKNOWN_WEIGHT;
+    weightHasMax = false;
+    assert( validate() );
 }
 
 Weight::Weight( Weight::UnitOfWeight newUnitOfWeight ) noexcept {
     weight = UNKNOWN_WEIGHT;
     maxWeight = UNKNOWN_WEIGHT;
     unitOfWeight = newUnitOfWeight;
+    weightIsKnown = false;
+    weightHasMax = false;
+    assert( validate() );
 }
 
 Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight) {
     setWeight( newWeight, newUnitOfWeight);
     maxWeight = UNKNOWN_WEIGHT;
+    weightHasMax = false;
+    assert( validate() );
 }
 
 Weight::Weight( float newWeight, float newMaxWeight) {
     setWeight( newWeight );
     setMaxWeight( newMaxWeight );
+    unitOfWeight = POUND;
+    assert( validate() );
 }
 
 Weight::Weight( Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {
     weight = UNKNOWN_WEIGHT;
     unitOfWeight = newUnitOfWeight;
     setMaxWeight( newMaxWeight );
+    weightIsKnown = false;
+    assert( validate() );
 }
 
 Weight::Weight( float newWeight, Weight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {
     setWeight( newWeight, newUnitOfWeight);
     setMaxWeight( newMaxWeight );
+    assert( validate() );
 }
 
 
