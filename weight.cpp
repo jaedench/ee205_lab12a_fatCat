@@ -140,20 +140,20 @@ float Weight::getMaxWeight() const noexcept {
 
 // Setters
 void Weight::setWeight(float newWeight) {
-    //@todo call validation for newWeight before setting it and throw error
+    assert(isWeightValid(newWeight));
     weight = newWeight;
     weightIsKnown = true;
 }
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
-    //@todo call validation for newWeight before setting it and throw error
+    assert(isWeightValid(newWeight));
     weight = newWeight;
     unitOfWeight = weightUnits;
     weightIsKnown = true;
 }
 
 void Weight::setMaxWeight(float newMaxWeight) {
-    //@todo call validation for newWeight before setting it and throw error
+    assert(isWeightValid(newMaxWeight));
     maxWeight = newMaxWeight;
     weightHasMax = true;
 }
