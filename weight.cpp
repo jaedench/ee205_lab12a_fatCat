@@ -14,9 +14,11 @@
 #include <cassert>
 #include <stdexcept>
 #include <iomanip>
+#include <cstring>
 
 #include "weight.h"
 
+#define FORMAT_LINE( className, member ) std::cout << std::setw(8) << (className) << std::setw(20) << (member) << std::setw(52)
 
 ////////////// Static Public Attributes ///////////////
 const float Weight::KILOS_IN_A_POUND = 0.453592 ;
@@ -183,5 +185,19 @@ bool Weight::validate() const noexcept {
     assert( isWeightValid(weight) );
     assert( isWeightValid(maxWeight) );
     return true;
+}
+
+///////////////// Dump ////////////////////
+void Weight::dump() const noexcept{
+    std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
+    std::cout << std::setfill( ' ' ) ;
+    std::cout << std::left ;
+    std::cout << std::boolalpha ;
+    FORMAT_LINE( "Weight", "this")          << this            << std::endl;
+    FORMAT_LINE( "Weight", "isKnown" )      << isWeightKnown() << std::endl ;
+    FORMAT_LINE( "Weight", "weight" )       << weight          << std::endl ;
+    FORMAT_LINE( "Weight", "unitOfWeight" ) << getWeightUnit() << std::endl ;
+    FORMAT_LINE( "Weight", "hasMax" )       << hasMaxWeight()  << std::endl ;
+    FORMAT_LINE( "Weight", "maxWeight" )    << maxWeight       << std::endl ;
 }
 

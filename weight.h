@@ -86,7 +86,7 @@ public:
 
 
     //////////////// Dump /////////////////
-    void dump() const noexcept;
+    void dump() const noexcept;     /// Print the Weight class.
 
 
     ///////////////  Numeric Operators ////////////////
