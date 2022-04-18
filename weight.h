@@ -109,6 +109,3 @@ private:
     void setMaxWeight( float newMaxWeight );
 
 };
-
-
-
