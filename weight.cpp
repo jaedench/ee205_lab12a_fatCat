@@ -187,6 +187,30 @@ bool Weight::validate() const noexcept {
     return true;
 }
 
+///////////////// Numeric Operators ///////////////////
+bool Weight::operator==( const Weight& rhs_Weight ) const {
+    /// Remember to convert the two weight's units into a common unit!
+    /// Treat unknown weights as 0 (so we can sort them without dealing
+    /// with exceptions)
+    float lhs_weight = (weightIsKnown) ? getWeight(Weight::POUND) : 0;
+    float rhs_weight = (rhs_Weight.weightIsKnown) ?
+                       rhs_Weight.getWeight(Weight::POUND) : 0;
+    return lhs_weight == rhs_weight;
+}
+
+bool Weight::operator<( const Weight& rhs_Weight ) const {
+    float lhs_weight = (weightIsKnown) ? getWeight(Weight::POUND) : 0;
+    float rhs_weight = (rhs_Weight.weightIsKnown) ?
+                       rhs_Weight.getWeight(Weight::POUND) : 0;
+    return lhs_weight < rhs_weight;
+}
+
+Weight& Weight::operator+=( float rhs_addToWeight ) {
+    weight += rhs_addToWeight;
+    return *this;
+}
+
+
 ///////////////// Dump ////////////////////
 void Weight::dump() const noexcept{
     std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
@@ -200,4 +224,3 @@ void Weight::dump() const noexcept{
     FORMAT_LINE( "Weight", "hasMax" )       << hasMaxWeight()  << std::endl ;
     FORMAT_LINE( "Weight", "maxWeight" )    << maxWeight       << std::endl ;
 }
-

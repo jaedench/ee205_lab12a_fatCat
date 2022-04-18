@@ -66,7 +66,7 @@ public:
 
     float getWeight (UnitOfWeight weightUnits) const noexcept;      /// Get the weight in a specific unit.
 
-    float getMaxWeight () const noexcept;       /// Get the maximum weight.
+    float getMaxWeight() const noexcept;       /// Get the maximum weight.
 
 
     // Setters
@@ -90,11 +90,11 @@ public:
 
 
     ///////////////  Numeric Operators ////////////////
-    bool operator==( const Weight &rhs_Weight ) const;
+    bool operator==( const Weight& rhs_Weight ) const; /// Weights are equal.
 
-    bool operator<( const Weight &rhs_weight ) const;
+    bool operator<( const Weight& rhs_Weight ) const; /// Compare two weights.
 
-    Weight & operator+=( float rhs_addToWeight );
+    Weight& operator+=( float rhs_addToWeight ); /// Add to existing weight and assume rhs_addToWeight is in the same units as Weight.
 
 
 private:
