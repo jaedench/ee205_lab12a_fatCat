@@ -211,6 +211,18 @@ Weight& Weight::operator+=( float rhs_addToWeight ) {
 }
 
 
+////////////////// Put To Stream Output Operator ///////////////////////
+std::ostream& operator<<( std::ostream& lhs_stream, const Weight::UnitOfWeight rhs_UnitOfWeight ) {
+    switch( rhs_UnitOfWeight ) {
+        case Weight::POUND: return lhs_stream << Weight::POUND_LABEL ;
+        case Weight::KILO: return lhs_stream << Weight::KILO_LABEL ;
+        case Weight::SLUG: return lhs_stream << Weight::SLUG_LABEL ;
+        default:
+            throw std::out_of_range( "The unit can’t be mapped to a string" );
+    }
+}
+
+
 ///////////////// Dump ////////////////////
 void Weight::dump() const noexcept{
     std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
