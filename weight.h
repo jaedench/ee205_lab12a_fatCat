@@ -85,16 +85,16 @@ public:
     bool validate() const noexcept;
 
 
-    //////////////// Dump /////////////////
-    void dump() const noexcept;     /// Print the Weight class.
-
-
     ///////////////  Numeric Operators ////////////////
     bool operator==( const Weight& rhs_Weight ) const; /// Weights are equal.
 
     bool operator<( const Weight& rhs_Weight ) const; /// Compare two weights.
 
     Weight& operator+=( float rhs_addToWeight ); /// Add to existing weight and assume rhs_addToWeight is in the same units as Weight.
+
+
+    //////////////// Dump /////////////////
+    void dump() const noexcept;     /// Print the Weight class.
 
 
 private:

@@ -19,6 +19,7 @@
 
 #define FORMAT_LINE( className, member ) std::cout << std::setw(8) << (className) << std::setw(20) << (member) << std::setw(52)
 
+
 ////////////// Static Public Attributes ///////////////
 const float Weight::KILOS_IN_A_POUND = 0.453592 ;
 const float Weight::SLUGS_IN_A_POUND = 0.031081 ;
@@ -29,7 +30,7 @@ const std::string Weight::KILO_LABEL  = "Kilogram" ;
 const std::string Weight::SLUG_LABEL  = "Slug" ;
 
 
-///////////////// Static Methods ///////////////////
+///////////////// Static Public Member Functions ///////////////////
 float Weight::fromKilogramToPound( const float kilogram ) noexcept {
     return kilogram / KILOS_IN_A_POUND ;
 }
@@ -152,12 +153,18 @@ float Weight::getMaxWeight() const noexcept {
 
 // Setters
 void Weight::setWeight(float newWeight) {
+    if (weightIsKnown == true && newWeight == UNKNOWN_WEIGHT) {
+        throw std::invalid_argument( PROGRAM_NAME ": You cannot unknow a weight.");
+    }
     assert(isWeightValid(newWeight));
     weight = newWeight;
     weightIsKnown = true;
 }
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
+    if (weightIsKnown == true && newWeight == UNKNOWN_WEIGHT) {
+        throw std::invalid_argument( PROGRAM_NAME ": You cannot unknow a weight.");
+    }
     assert(isWeightValid(newWeight));
     weight = newWeight;
     unitOfWeight = weightUnits;
@@ -165,6 +172,9 @@ void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
 }
 
 void Weight::setMaxWeight(float newMaxWeight) {
+    if ( weightHasMax == true ) {
+        throw std::invalid_argument( PROGRAM_NAME ": Max weight already set and cannot be changed.");
+    }
     assert(isWeightValid(newMaxWeight));
     maxWeight = newMaxWeight;
     weightHasMax = true;
